@@ -1,10 +1,11 @@
-import { StyleSheet, Text, View, Image } from "react-native";
+import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
 import React from "react";
 import colors from "../../colors.json";
 import Icon from "react-native-vector-icons/FontAwesome";
+import Navigation from "../Components/Navigation";
 
 const Home = (props) => {
-  console.log(props);
+  
   const list = [
     "Recorded classes",
     "Multilingual content",
@@ -42,15 +43,16 @@ const Home = (props) => {
         eligendi assumenda mollitia veritatis rem vel.
       </Text>
       <View style={styles.list}>
-        {list.map((item , index) => {
+        {list.map((item, index) => {
           return (
-            <View key={index + "_"+ item} style={styles.list_item}>
-              <Icon name="check" color={colors.blue} />
+            <View key={index + "_" + item} style={styles.list_item}>
+              <Icon name="check" color={colors.green} />
               <Text style={styles.list_text}>{item}</Text>
             </View>
           );
         })}
       </View>
+      <Navigation />
     </View>
   );
 };
@@ -76,13 +78,14 @@ const styles = StyleSheet.create({
   },
   text_main: {
     fontSize: 20,
-    // fontWeight : "bold",
     fontFamily: "Padauk_700Bold",
   },
   text_heading: {
     display: "flex",
     flexDirection: "row",
-    marginTop: 20,
+    paddingTop: 20,
+    borderTopWidth: 1,
+    borderColor: colors.slate,
   },
   heading: {
     color: colors.blue,
@@ -91,28 +94,28 @@ const styles = StyleSheet.create({
     marginTop: 20,
   },
   desc: {
-    fontSize: 20,
-    color: colors.slate,
+    fontSize: 18,
+    color: colors.dark,
     paddingVertical: 10,
     lineHeight: 25,
-    marginTop: 15,
+    marginTop: 5,
     fontFamily: "Padauk_400Regular",
   },
   list: {
-  paddingHorizontal : 20,
+    marginTop: 10,
   },
   list_item: {
     justifyContent: "flex-start",
     alignItems: "center",
-    flexDirection : "row",
+    flexDirection: "row",
     display: "flex",
-    paddingHorizontal: 10,
-    paddingVertical: 5,
+    paddingVertical: 2,
     color: colors.blue,
   },
-  list_text : {
-    color : colors.blue,
-    marginLeft : 10,
-    fontFamily : "Padauk_700Bold"
-  }
+  list_text: {
+    color: colors.green,
+    fontSize: 18,
+    marginLeft: 15,
+    fontFamily: "Padauk_700Bold",
+  },
 });
